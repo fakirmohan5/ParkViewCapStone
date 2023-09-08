@@ -1,0 +1,107 @@
+﻿<style>
+    #more {
+        display: none;
+    }
+
+    .card {
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    }
+</style>
+
+<div class="container text-center" style="margin-top:100px;">
+    <div class="row">
+        <div class="col">
+            <img src="~/images/HotelView/1.webp" class="d-block w-100" alt="...">
+
+        </div>
+        <div class="col">
+            <h4>Grand Park View</h4>
+            <h5><i class="fa-solid fa-location-dot"></i>  Golf Course Road, Sector 58 Manali, Himachal, 122011 India</h5>
+            <h5><i class="fa-solid fa-phone"></i>  +91 9999 5555 76</h5>
+        </div>
+        
+    </div>
+</div>
+<br />
+<h5 style="margin-left:47%">View Details</h5>
+<hr />
+<div style="background-color:#f2f1ed;">
+    <p> The safety and wellbeing of our guests and colleagues is always a top priority. In light of COVID-19 pandemic and as per Govt. directives, double vaccination certificate (second dose) is a mandate for all guests visiting the hotel. No individual would be allowed to check-in without being fully vaccinated. Face masks are compulsory in all indoor and outdoor public areas Please note: From July 1, 2017 onwards, Goods .<span id="dots">...</span><span id="more"> and Service Tax (GST) will be applicable in accordance with the prescribed tax rates. The hotel can only provide an estimate of taxes at the time of reservation. Taxes are subject to change without prior notice. Grand Hyatt Gurgaon requests all guests to carry a Government approved ID with a valid address proof and company ID, the same will be required to produce upon arrival. For further inquiries, please contact the hotel directly.</span></p>
+</div>
+<button onclick="myFunction()" id="myBtn" style="border: none; margin-left:90%;"><span style="color:blue">Read more</span></button>
+
+
+<div style="margin-bottom:500px">
+    <h2 style="text-align:center;"> rooms Available </h2>
+    <br />
+    <p>For when nothing less than perfect will do, the eight brands across the Timeless Collection showcase impeccable service and thoughtful amenities, and prove some traditions are time-honored for a reason.</p>
+    <br />
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <h3>Deluxe</h3>
+                <div class="card">
+                    <img src="~/images/RoomView/deluxe.webp" class="card-img-top" style="height:250px;" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5>Rs.10000</h5>
+                        <a asp-controller="GrandParkView" asp-action="Index" class="btn btn-primary">Book a stay </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h3>Super Deluxe</h3>
+                <div class="card">
+                    <img src="~/images/RoomView/sup-deluxe.webp" class="card-img-top" style="height:250px;" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5>Rs. 15000</h5>
+                        <a asp-controller="GrandParkView" asp-action="Index" class="btn btn-primary">Book a stay</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+                <h3>Executive</h3>
+                <div class="card">
+                    <img src="~/images/RoomView/executive.webp" class="card-img-top" style="height:250px;" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5>Rs.25000</h5>
+                        <a asp-controller="GrandParkView" asp-action="Index" class="btn btn-primary"> Book a stay</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h3>Presidential</h3>
+                <div class="card">
+                    <img src="~/images/RoomView/presidential.webp" class="card-img-top" style="height:250px;" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5>rs.30000</h5>
+                        <a asp-controller="GrandParkView" asp-action="Index" class="btn btn-primary"> Book a Stay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+    function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+        }
+    }
+    </script>

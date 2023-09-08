@@ -1,0 +1,32 @@
+﻿@model List<ParkView.Models.Domain.Booking>
+
+<div class="container" style="margin-top:100px;">
+
+
+
+
+    <div class="container">
+        <h1>Previous Bookings</h1>
+        <div class="row">
+            @foreach (var booking in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="/images/Home/logo1.jpg" style="width: 200px; height:200px; " alt="Hotel Image" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title"> Hotel Id : @booking.HotelId</h5>
+                            <p class="card-text">
+                                Room Type: @booking.RoomType<br />
+                                Check-in Date: @booking.CheckInDate.ToShortDateString()<br />
+                                Check-out Date: @booking.CheckOutDate.ToShortDateString()<br />
+                                Number of Guests: @booking.NumberOfGuests<br />
+                                Date Of booking: @booking.BookingDate<br />
+                                Total Price: $@booking.TotalPrice
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

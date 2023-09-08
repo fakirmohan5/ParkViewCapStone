@@ -1,0 +1,113 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Luxury Hotel</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #00284d;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+            header h1 {
+                font-size: 36px;
+            }
+
+        /* Container styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* FAQ styles */
+        .faq {
+            margin-top: 20px;
+        }
+
+            .faq h2 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .faq .question {
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .faq .answer {
+                display: none;
+                margin-top: 10px;
+            }
+
+        /* Footer styles */
+        footer {
+            background-color: #00284d;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="margin-top:100px;">
+    <header>
+        <h1>Park View Hotels FAQs</h1>
+    </header>
+    <div class="container">
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="question">
+                <span class="question">Q: What is the check-in time?</span>
+                <div class="answer">
+                    A: The check-in time is at 3:00 PM.
+                </div>
+            </div>
+            <div class="question">
+                <span class="question">Q: Is Wi-Fi available in the rooms?</span>
+                <div class="answer">
+                    A: Yes, complimentary Wi-Fi is available in all guest rooms.
+                </div>
+            </div>
+            <!-- Add more FAQ entries as needed -->
+        </div>
+    </div>
+    <footer>
+        &copy; 2023 Park View Hotels. All rights reserved.
+    </footer>
+    <script>
+        // JavaScript to toggle FAQ answers
+        const questions = document.querySelectorAll('.question');
+        questions.forEach((question) => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>
+

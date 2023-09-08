@@ -1,0 +1,79 @@
+﻿@model List<ParkView.Models.Domain.Hotel>
+<div class="container" style="margin-top:100px;">
+    <h1>Hotels</h1>
+
+    <div class="row" style="margin-top:100px;">
+        @foreach (var hotel in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src=@hotel.imageUrl class="card-img-top" style="height:250px;" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="card-title"> @hotel.Name</h5>
+                        <p class="card-text">@hotel.Place</p>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <!-- controller should be different depending on the hotel in which they are trying to boook a stay -->
+
+                        <a asp-controller="Hotel" asp-action="ViewHotel" asp-route-id="@hotel.Id" class="btn btn-primary">Explore details</a>
+                        <!-- Add more hotel details here -->
+
+
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@*
+	
+<div class="container mt-4">
+    <h2 class="text-center">Search for Hotels</h2>
+    <form method="get" action="@Url.Action("Search", "Hotel")">
+        <div class="input-group">
+            <input type="text" name="query" class="form-control" placeholder="Enter your search query..." />
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="container mt-4">
+    <h2 class="text-center">Search Results</h2>
+
+
+
+    <div class="row">
+        @foreach (var hotel in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src=@hotel.imageUrl class="card-img-top" style="height:250px;" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="card-title"> @hotel.Name</h5>
+                        <p class="card-text">@hotel.Place</p>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <!-- controller should be different depending on the hotel in which they are trying to boook a stay -->
+
+                        <a asp-controller="GrandParkView" asp-action="Index" class="btn btn-primary">Explore details</a>
+                        <!-- Add more hotel details here -->
+
+
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+*@
+
+

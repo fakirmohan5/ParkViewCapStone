@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers at Your Company</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        /* Reset some default styles */
+        body, h1, h2, h3, p, ul, li, form {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Apply some basic styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .job-listings {
+            margin: 20px;
+        }
+
+        .job {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .apply-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+            .apply-button:hover {
+                background-color: #0056b3;
+            }
+
+        .application-form {
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .submit-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+            .submit-button:hover {
+                background-color: #0056b3;
+            }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body style="margin-top:100px;">
+    <header>
+        <h1>Careers at ParkView</h1>
+        <p>Join our team and grow your career with us.</p>
+    </header>
+
+    <section class="job-listings">
+        <h2>Current Job Openings</h2>
+        <div class="job">
+            <h3>Job Title 1</h3>
+            <p>Description of job 1.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+        <div class="job">
+            <h3>Job Title 2</h3>
+            <p>Description of job 2.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+        <!-- Add more job listings as needed -->
+    </section>
+
+    <section class="application-form">
+        <h2>Apply for a Position</h2>
+        <form action="submit_application.php" method="post">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="resume">Upload Resume:</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+
+            <button type="submit" class="submit-button">Submit Application</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

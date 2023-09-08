@@ -1,0 +1,22 @@
+﻿@model ParkView.Models.Domain.OrderEntity
+
+<div class="align-text-center" style="margin-top:100px;">
+	<div class="text-center text-success">
+		<h3>Payment received Successfully!!!!!</h3>
+	</div>
+	<br />
+	<table class="table table-striped" width="10px">
+		<thead>
+			<tr>
+				<td><b>Transaction Number</b></td>
+				<td>@Html.DisplayText("TransactionId")</td>
+			</tr>
+			<tr>
+				<td><b>Order Number</b></td>
+				<td>@Html.DisplayText("OrderId")</td>
+			</tr>
+
+		</thead>
+	</table>
+	
+</div>

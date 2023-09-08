@@ -1,0 +1,78 @@
+﻿@model ParkView.Models.AddHotelViewModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@* *@
+<div class="container" style="margin-top:100px;">
+    <form method="post" action="AddHotel">
+        <div class="mb-3">
+            <label for="" class="form-label">Name </label>
+            <input type="text" asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Place </label>
+            <input type="text" asp-for="Place" class="form-control">
+            <span asp-validation-for="Place" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Number of Rooms </label>
+            <input type="number" asp-for="NumRooms" class="form-control">
+            <span asp-validation-for="NumRooms" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Number of Presindential Rooms </label>
+            <input type="number" asp-for="NumPresedentialRooms" class="form-control">
+            <span asp-validation-for="NumPresedentialRooms" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Number of Executive Rooms </label>
+            <input type="number" asp-for="NumExecutiveRooms" class="form-control">
+            <span asp-validation-for="NumExecutiveRooms" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Number of Deluxe Rooms </label>
+            <input type="number" asp-for="NumDeluxeRooms" class="form-control">
+            <span asp-validation-for="NumDeluxeRooms" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Number of Super Deluxe Rooms </label>
+            <input type="number" asp-for="NumSuperDeluxeRooms" class="form-control">
+            <span asp-validation-for="NumSuperDeluxeRooms" class="text-danger"></span>
+
+        </div>
+
+
+        <div class="mb-3">
+            <label for="" class="form-label">Image Title (With Extension) </label>
+            <input type="text" asp-for="ImageUrl" class="form-control">
+            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,284 @@
+﻿<!-- _AdminLayout.cshtml -->
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add admin-specific styles/scripts here -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ParkView</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ParkView.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/regular.css/regular.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/solid.css/solid.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <style>
+
+        /* The navigation bar */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed; /* Set the navbar to fixed position */
+
+            top: 0; /* Position the navbar at the top of the page */
+            width: 100%; /* Full width */
+            z-index: 4;
+        }
+
+            /* Links inside the navbar */
+            .navbar a {
+                float: left;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                /* Change background on mouse-over */
+                .navbar a:hover {
+                    background: #ddd;
+                    color: black;
+                }
+
+        body {
+            line-height: 1.5;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer {
+            background-color: #24262b;
+            padding: 70px 0;
+            height: 300px;
+        }
+
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+            .footer-col h4 {
+                font-size: 18px;
+                color: #ffffff;
+                text-transform: capitalize;
+                margin-bottom: 30px;
+                font-weight: 1000;
+                position: relative;
+            }
+
+                .footer-col h4::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -10px;
+                    background-color: #e91e63;
+                    height: 2px;
+                    box-sizing: border-box;
+                }
+
+            .footer-col ul li a {
+                font-size: 16px;
+                text-transform: capitalize;
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 500;
+                color: #bbbbbb;
+                display: block;
+                transition: all 0.3s ease;
+            }
+
+                .footer-col ul li a:hover {
+                    color: #ffffff;
+                    padding-left: 8px;
+                }
+
+
+        .socials {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-col ul li {
+            height: 30px;
+            width: 30px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            width:50px;
+        }
+
+        .socials a {
+            margin: 0;
+            padding: 0;
+        }
+
+        .socials li {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px;
+        }
+
+            .socials a i {
+                font-size: 1.1rem;
+                width: 20px;
+                transition: color .4s ease;
+            }
+
+            .socials a:hover i {
+                color: aqua;
+            }
+
+        
+
+    </style>
+
+
+</head>
+<body>
+    
+    <header>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <div class="logo">
+                <img src="~/images/Home/logo1.jpg" width="70px" height="70px" />
+            </div>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ParkView</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AddHotel">Add Hotel</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="Index">Our Hotels</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="BookingsList">Booking Details</a>
+                    </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="RegisteredUsers">Registered Users</a>
+                        </li>
+
+        
+                    
+                    <partial name="_LoginPartial" />
+
+
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+
+    <div class="" style="margin-bottom:200px; margin-top:100px; ">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Corporate Sites</h4>
+                    <ul>
+                        <li><a asp-controller="Footer" asp-action="AboutUs">About</a></li>
+                        <li><a asp-controller="Footer" asp-action="Career">Careers</a></li>
+
+                        <li><a asp-controller="Footer" asp-action="">Investor </a></li>
+
+                        <li><a asp-controller="Footer" asp-action="">Corporate </a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a asp-controller="Footer" asp-action="CustomerServicve">Customer </a></li>
+                        <li><a asp-controller="Footer" asp-action="FAQ">FAQs</a></li>
+
+                        <li><a asp-controller="Contact" asp-action="Index">Contact </a></li>
+
+                        <li><a asp-controller="Footer" asp-action="">Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4> Explore More</h4>
+                    <ul>
+                        <li><a asp-controller="Footer" asp-action="TravelAdvisor">Travel </a></li>
+                        <li><a asp-controller="Footer" asp-action="CorporateTravel">Corporate </a></li>
+
+                        <li><a asp-controller="Footer" asp-action="">Residences</a></li>
+
+                        <li><a asp-controller="Footer" asp-action="">Gift </a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="socials">
+                        <a asp-controller="Footer" asp-action=""><i class="fab fa-facebook-f"></i></a>
+                        <a asp-controller="Footer" asp-action=""><i class="fab fa-twitter"></i></a>
+
+                        <a asp-controller="Footer" asp-action=""><i class="fab fa-instagram"></i></a>
+
+                        <a asp-controller="Footer" asp-action=""><i class="fab fa-linkedin-in"></i></a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+
+</body>
+</html>
+

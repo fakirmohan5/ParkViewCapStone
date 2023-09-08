@@ -1,0 +1,31 @@
+﻿@model List<ParkView.Models.Domain.Hotel>
+
+<h1>hotels</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+
+			<th>Place</th>
+
+			<th>Num Rooms</th>
+
+			
+
+
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.Name</td>
+				<td>@item.Place</td>
+				<td>@item.NumRooms</td>
+
+			</tr>
+		}
+	</tbody>
+</table>

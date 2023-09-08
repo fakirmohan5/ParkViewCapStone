@@ -1,0 +1,26 @@
+﻿@model List<ParkView.Models.Domain.CabBook>
+
+<h1>cabs</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Place</th>
+
+			<th>date</th>
+			
+
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.place</td>
+				<td>@item.dateOfBooking</td>
+				
+			</tr>
+		}
+	</tbody>
+</table>

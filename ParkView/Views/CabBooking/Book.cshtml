@@ -1,0 +1,37 @@
+﻿@model ParkView.Models.BookCabViewModel
+
+
+@* *@
+
+<form method="post" action="Book">
+    <div class="mb-3">
+        @*         <label for="" class="form-label">Place </label>
+        <input type="text" asp-for="place" class="form-control">
+        <span asp-validation-for="place" class="text-danger"></span>
+        *@
+        <label for="place">Choose a place:</label>
+        <select id="places" name="places">
+            <option value="place1">Place1</option>
+            <option value="place2">Place2</option>
+            <option value="place3">Place3</option>
+
+        </select>
+        <input type="text" asp-for="place" class="form-control">
+
+
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Date Of booking </label>
+        <input type="datetime" asp-for="dateOfbookig" class="form-control">
+        <span asp-validation-for="dateOfbookig" class="text-danger"></span>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+

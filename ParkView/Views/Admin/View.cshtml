@@ -1,0 +1,92 @@
+﻿@{
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@model ParkView.Models.UpdateHotelViewModel
+
+<div class="container" style="margin-top:100px;">
+
+    <h1>Edit Hotel</h1>
+    <form method="post" action="View">
+        <div class="mb-3">
+            <label for="" class="form-label">Id </label>
+            <input type="text" asp-for="Id" class="form-control" readonly>
+            <span asp-validation-for="Id" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Name </label>
+            <input type="text" asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Place </label>
+            <input type="text" asp-for="Place" class="form-control">
+            <span asp-validation-for="Place" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Number of Rooms </label>
+            <input type="number" asp-for="NumRooms" class="form-control">
+            <span asp-validation-for="NumRooms" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Number of Presindential Rooms </label>
+            <input type="number" asp-for="NumPresedentialRooms" class="form-control">
+            <span asp-validation-for="NumPresedentialRooms" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Number of Executive Rooms </label>
+            <input type="number" asp-for="NumExecutiveRooms" class="form-control">
+            <span asp-validation-for="NumExecutiveRooms" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Number of Deluxe Rooms </label>
+            <input type="number" asp-for="NumDeluxeRooms" class="form-control">
+            <span asp-validation-for="NumDeluxeRooms" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Number of Super Deluxe Rooms </label>
+            <input type="number" asp-for="NumSuperDeluxeRooms" class="form-control">
+            <span asp-validation-for="NumSuperDeluxeRooms" class="text-danger"></span>
+
+        </div>
+
+
+        <div class="mb-3">
+            <label for="" class="form-label">Image Title (With Extension) </label>
+            <input type="text" asp-for="imageUrl" class="form-control">
+            <span asp-validation-for="imageUrl" class="text-danger"></span>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Admin">Delete</button>
+        <button type="submit" class="btn btn-success" asp-action="Index" asp-controller="Admin">Go Back</button>
+
+
+    </form>
+
+</div>
+
+
+
+
+
+
+
+
+

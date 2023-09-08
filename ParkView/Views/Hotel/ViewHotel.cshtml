@@ -1,0 +1,118 @@
+﻿@model ParkView.Models.Domain.Hotel
+
+
+
+
+
+<style>
+    #more {
+        display: none;
+    }
+
+
+
+    .card {
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    }
+</style>
+
+<div class="container" style="margin-top:100px;">
+
+    <div class="container text-center" style="margin-top:100px;">
+        <div class="row">
+            <div class="col">
+
+
+
+                <img src=@Model.imageUrl class="d-block w-100" alt="...">
+
+
+
+            </div>
+            <div class="col">
+                <h4 style="margin-top:50px;">@Model.Name</h4>
+                <h5><i class="fa-solid fa-location-dot"></i>  Golf Course Road, Sector 58 Manali, Himachal, 122011 India</h5>
+                <h5><i class="fa-solid fa-phone"></i>  +91 9999 5555 76</h5>
+                <i class="fa-solid fa-dumbbell"></i>          <i class="fa-solid fa-mug-saucer"></i>      <i class="fa-solid fa-jug-detergent"></i>      <i class="fa-solid fa-wifi"></i>      <i class="fa-solid fa-square-parking"></i>     <i class="fa-solid fa-dog"></i>
+            </div>
+
+
+
+        </div>
+    </div>
+    <br />
+    <h5 style="margin-left:47%">View Details</h5>
+    <hr />
+    <div style="background-color:#f2f1ed;">
+        <p> The safety and wellbeing of our guests and colleagues is always a top priority. In light of COVID-19 pandemic and as per Govt. directives, double vaccination certificate (second dose) is a mandate for all guests visiting the hotel. No individual would be allowed to check-in without being fully vaccinated. Face masks are compulsory in all indoor and outdoor public areas Please note: From July 1, 2017 onwards, Goods .<span id="dots">...</span><span id="more"> and Service Tax (GST) will be applicable in accordance with the prescribed tax rates. The hotel can only provide an estimate of taxes at the time of reservation. Taxes are subject to change without prior notice. Grand Hyatt Gurgaon requests all guests to carry a Government approved ID with a valid address proof and company ID, the same will be required to produce upon arrival. For further inquiries, please contact the hotel directly.</span></p>
+    </div>
+    <button onclick="myFunction()" id="myBtn" style="border: none; margin-left:90%;"><span style="color:blue">Read more</span></button>
+
+
+
+
+
+    <div style="margin-bottom:100px">
+        <h2 style="text-align:center;"> Rooms Available </h2>
+        <br />
+        <p>For when nothing less than perfect will do, the eight brands across the Timeless Collection showcase impeccable service and thoughtful amenities, and prove some traditions are time-honored for a reason.</p>
+        <br />
+
+
+
+        @{
+            var distinctRoomTypes = Model.Rooms.Select(r => r.RoomType).Distinct();
+        }
+        <div class="container text-center" >
+            <div class="row" >
+                @foreach (var roomType in distinctRoomTypes)
+                {
+                    <h2 style="margin-top:40px;">@roomType Rooms</h2>
+                    <div class="row" style="margin-top:20px;">
+                        @foreach (var room in Model.Rooms.Where(r => r.RoomType == roomType))
+                        {
+                            <div class="col">
+                                <div class="card">
+                                    <img src="@room.imageUrl" class="card-img-top" style="height:250px;" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h5>@room.Price</h5>
+                                        <form method="post" asp-controller="GrandParkView" asp-action="Index" asp-route-RoomId="@room.RoomId" asp-route-hotelId="@ViewData["currentHotelId"]">
+                                            <input type="hidden" name="roomId" value="@room.RoomId" />
+                                            <button type="submit" class="btn btn-primary">Book a stay</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+        </div>
+
+</div>
+
+
+
+
+
+<script>
+    function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+        }
+    }
+</script>

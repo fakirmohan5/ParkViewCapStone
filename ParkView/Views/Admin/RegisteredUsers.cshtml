@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@model List<Microsoft.AspNetCore.Identity.IdentityUser>
+
+<div class="container" style="margin-top:100px;">
+    <h2>Registered Users</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <!-- Add more user information columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    
+                    <td>@user.Email</td>
+                    <!-- Display more user information columns as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+

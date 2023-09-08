@@ -1,0 +1,36 @@
+﻿@model List<ParkView.Models.Domain.BookRoom>
+
+<h1>Room Booking Data</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+
+			<th>aadhar</th>
+
+			<th>Hotel name</th>
+
+			<th>room type</th>
+
+			<th>checkin date</th>
+
+			<th>Checkout date</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.Name</td>
+				<td>@item.Aadhar</td>
+				<td>@item.Hotel</td>
+				<td>@item.RoomType</td>
+				<td>@item.CheckInDate</td>
+				<td>@item.CheckOutdate</td>
+			</tr>
+		}
+	</tbody>
+</table>

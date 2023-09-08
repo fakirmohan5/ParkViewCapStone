@@ -1,0 +1,83 @@
+﻿
+
+
+
+
+
+
+
+
+
+<div style="margin-top:100px;"></div>
+
+@model ParkView.Models.BookingViewModel
+
+
+
+<div class="container mt-5">
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <h3>Hotel Id: @Model.HotelId</h3>
+            </div>
+            <div class="col">
+                <h3>
+                    Room Id: @Model.RoomId
+                </h3>
+            </div>
+        </div>
+        
+    </div>
+
+    
+
+
+
+    <form method="post" asp-controller="GrandParkView" asp-action="BookRoom">
+        <input type="hidden" name="hotelId" value="@Model.HotelId" />
+        <input type="hidden" name="roomId" value="@Model.RoomId" />
+
+
+
+        <div class="row">
+            <div class="col-md-3">
+                <label for="checkInDate" class="form-label">Check-in Date</label>
+                <input type="date" asp-for="CheckInDate" class="form-control" value="@Model.CheckInDate">
+                <span asp-validation-for="CheckInDate" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="col-md-3">
+                <label for="checkOutDate" class="form-label">Check-out Date</label>
+                <input type="date" asp-for="CheckOutDate" class="form-control" value="@Model.CheckOutDate">
+                <span asp-validation-for="CheckOutDate" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="col-md-2">
+                <label for="numberOfGuests" class="form-label">Guests</label>
+                <input type="number" asp-for="NumberOfGuests" class="form-control">
+                <span asp-validation-for="NumberOfGuests" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="col-md-2">
+                <label for="numberOfChildren" class="form-label">Children (Below 5 yrs)</label>
+                <input type="number" asp-for="NumberOfChildren" class="form-control">
+                <span asp-validation-for="NumberOfChildren" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary mt-4">Book</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

@@ -1,0 +1,46 @@
+﻿
+
+
+
+
+
+
+
+@*
+	<div style="margin-top:100px;"></div>
+
+@model ParkView.Models.RoomBookViewModel
+
+@using (Html.BeginForm("bookingPage", "Hotel", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(model => model.checkindate)
+        @Html.EditorFor(model => model.checkindate, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.checkoutdate)
+        @Html.EditorFor(model => model.checkoutdate, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.NumGuests)
+        @Html.EditorFor(model => model.NumGuests, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.NumChild)
+        @Html.EditorFor(model => model.NumChild, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+    </div>
+
+    <input type="submit" value="Submit" />
+}
+
+*@
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@model List<ParkView.Models.Domain.Booking>
+<div class="container" style="margin-top:100px;">
+    <h2>Booking Details of Users</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Hotel Id</th>
+                <th>User Id</th>
+                <th>Checkin Date</th>
+                <th>Checkout Date</th>
+                <th>Num Guests</th>
+                <th>Room Type</th>
+                <th>Total Price</th>
+                <th>Booking Date</th>
+                <!-- Add more user information columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <th>@user.Id</th>
+                    <th>@user.HotelId</th>
+                    <th>@user.UserId </th>
+                    <th>@user.CheckInDate </th>
+                    <th>@user.CheckOutDate </th>
+                    <th>@user.NumberOfGuests</th>
+                    <th>@user.RoomType </th>
+                    <th>@user.TotalPrice </th>
+                    <th> @DateTime.Now </th>
+                    <!-- Display more user information columns as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+

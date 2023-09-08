@@ -1,0 +1,443 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model IEnumerable<ParkView.Models.Domain.Hotel>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/bootstrap.css/bootstrap.min.css" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/bootstrap.js/bootstrap.min.js"></script>
+
+    <style>
+
+        body {
+            font-family: "Yeseva One",Merriweather,Georgia,"Times New Roman",serif;
+        }
+
+        h3 {
+            font-size: 2.3rem;
+            text-align: center;
+        }
+
+        h5 {
+            font-size: 1.8rem;
+        }
+
+        
+        h2 {
+            font-size: 2.8rem;
+            text-align: center;
+        }
+
+        .card{
+            width: 23rem; 
+            margin: 20px 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        
+        .slider{
+         height:250px;
+         margin:auto;
+         position: relative;
+         width:90%;
+         display:grid;
+         place-items:center;overflow:hidden;
+        }
+
+        .slide-track{
+            display:flex;
+            width:calc(250px * 14);
+            animation:scroll 40s linear infinite;
+        }
+
+        .slider-track:hover{
+            animation-play-state:paused;
+        }
+
+        @@keyframes scroll{
+            0%{
+                transform:translateX(0);
+            }
+            
+            100%{
+                transform: translateX(calc(-250px*7));
+            }
+        }
+
+        .slide{
+            height:200px;
+            width:250px;
+            display:flex;
+            align-items:center;
+            padding:15px;
+            perspective:100px;
+        }
+
+        img{
+            width:100%;
+        }
+        img:hover{
+            transform:translateZ(20px);
+        }
+
+        .slider::before,
+        .slider::after{
+            background: linear-gradient(to right,rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+            content: '';
+            height:100%;
+            position:absolute;
+            width:15%;
+            z-index:2;
+        }
+
+        .slider::before{
+            left:0;
+            top:0;
+        }
+
+        .slider::after{
+            right:0;
+            top:0;
+            transform:rotateZ(180deg);
+        }
+        body{
+            margin-top:100px;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        @if (User.IsInRole("Admin"))
+        {
+            <h2 style="color:#7f7fff">Welcome Admin !</h2>
+        }
+
+        <div class="container mt-4">
+            <h4 class="text-center">Search for Hotels</h4>
+            <form method="get" action="@Url.Action("Index", "Home")">
+                <div class="input-group">
+                    <input type="text" name="query" class="form-control" placeholder="City,Address,Hotel" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        
+
+        <div class="container mt-4">
+
+            @*
+            <h2 class="text-center">Search Results</h2>
+
+            *@
+
+
+
+            <div class="row">
+                @foreach (var hotel in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src=@hotel.imageUrl class="card-img-top" style="height:250px;" alt="...">
+
+                            <div class="card-body">
+                                <h5 class="card-title"> @hotel.Name</h5>
+                                <p class="card-text">@hotel.Place</p>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <!-- controller should be different depending on the hotel in which they are trying to boook a stay -->
+
+                                <a asp-controller="GrandParkView" asp-action="Index" class="btn btn-primary">Explore details</a>
+                                <!-- Add more hotel details here -->
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+        <div class="" sty4="margin-top:20px;">
+            <img src="~/images/Home/h-carousel-1.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="container" id="text section" style="height:200px; width:100%;padding:20px 20px;margin-top:50px">
+            <p>
+                Brand Explorer Award
+
+                Be rewarded with a free night for every five unique brands you experience with the Brand Explorer Award. Here’s how it works:
+
+                Pay an Eligible Rate, redeem points or redeem an earned Free Night Award at five different Hyatt brands and earn a free night at a Category 1-4 hotel.
+                Earn a Free Night Award for every additional 5 unique Hyatt brands you stay at over the lifetime of your membership.
+                A hotel must participate in World of Hyatt when an eligible stay occurs to be counted toward earning a Brand Explorer award.
+                See full details here.
+            </p>
+        </div>
+        <br />
+
+
+        
+        <div class="slider" style="margin-top:10px; margin-bottom:10px;">
+        <div class="slide-track">
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+        </div>
+        <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+        </div>
+        </div>
+        </div>
+        
+
+
+
+
+
+
+        <div style="margin-bottom:20px">
+
+            @*
+
+
+            *@
+
+            <h2 style="text-align:center;"> We Are Present In </h2>
+            <br />
+            <p style="padding:20px 20px;margin-top:50px">For when nothing less than perfect will do, the eight brands across the Timeless Collection showcase impeccable service and thoughtful amenities, and prove some traditions are time-honored for a reason.</p>
+            <br />
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col">
+                        <h3>Goa</h3>
+                        <div class="card">
+                            <img src="~/images/OurBrand/goa.jpg" class="card-img-top" style="height:300px;" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a asp-controller="Hotel" asp-action="Index"  class="btn btn-primary">Explore details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3>Manali</h3>
+                        <div class="card">
+                            <img src="~/images/OurBrand/himachal.jpg" class="card-img-top" style="height:300px;" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a asp-controller="Hotel" asp-action="Index" class="btn btn-primary">Explore details</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <h3>Munnar</h3>
+                        <div class="card">
+                            <img src="~/images/OurBrand/munnar.jpg" class="card-img-top" style="height:300px;" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a asp-controller="Hotel" asp-action="Index" class="btn btn-primary">Explore details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <h3>Add-On Services </h3>
+        <br />
+        <p>For when nothing less than perfect will do, the eight brands across the Timeless Collection showcase impeccable service and thoughtful amenities, and prove some traditions are time-honored for a reason.</p>
+
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 18rem; margin: 20px 5px">
+                        <img style="height:150px;" src="~/images/WhatWeOffer/breakfast.jpg" class="card-img-top" style="height:300px;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style=""> BreakFast </h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Learn More....</a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; margin: 20px 5px">
+                        <img style="height:150px;" src="~/images/WhatWeOffer/roomservice.jpg" class="card-img-top" style="height:300px;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style=""> Room Service </h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Learn More....</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;margin: 20px 5px">
+                        <img style="height:150px;" src="~/images/WhatWeOffer/wifi.jpg" class="card-img-top" style="height:300px;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style=""> Wifi </h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Learn More....</a>
+                        </div>
+                    </div>
+
+
+                    <div class="card" style="width: 18rem; margin: 20px 5px">
+                        <img style="height:150px;" src="~/images/WhatWeOffer/park.jpg" class="card-img-top" style="height:300px;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style=""> Park </h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Learn More....</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem; margin: 20px 5px">
+                        <img style="height:150px;" src="~/images/WhatWeOffer/pool2.jpg" class="card-img-top" style="height:300px;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style=""> Pool </h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Learn More....</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;margin: 20px 5px">
+                        <img style="height:150px;" src="~/images/WhatWeOffer/gym.jpg" class="card-img-top" style="height:300px;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="">In house gym </h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Learn More....</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="container">
+        <h3>Paid Services </h3>
+        <br />
+        <p>For when nothing less than perfect will do, the eight brands across the Timeless Collection showcase impeccable service and thoughtful amenities, and prove some traditions are time-honored for a reason.</p>
+        <div class="container" style="display:flex;">
+
+            <div class="card" style="width: 18rem; margin: 20px 5px">
+                <img style="height:150px;" src="~/images/WhatWeOffer/food.jpg" class="card-img-top" style="height:300px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" style=""> Dining </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Learn More....</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem; margin: 20px 5px">
+                <img style="height:150px;" src="~/images/WhatWeOffer/spa.jpg" class="card-img-top" style="height:300px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" style=""> Spa </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Learn More....</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;margin: 20px 5px">
+                <img style="height:150px;" src="~/images/WhatWeOffer/cab-service.jpg" class="card-img-top" style="height:300px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" style="">Cab Service </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Learn More....</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; margin: 20px 5px">
+                <img style="height:150px;" src="~/images/WhatWeOffer/laundry.jpg" class="card-img-top" style="height:300px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" style=""> Laundry </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Learn More....</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    
+
+
+</body>
+</html>
